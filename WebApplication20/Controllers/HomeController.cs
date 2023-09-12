@@ -37,7 +37,7 @@ namespace WebApplication20.Controllers
                     if (extension == ".docx" && Email.IsValidEmail(email))
                     {
 
-                        var container = new BlobContainerClient(_azureConnectionString, "upload-container");
+                        var container = new BlobContainerClient(_azureConnectionString, "samples-workitems");
                         var createResponse = await container.CreateIfNotExistsAsync();
                         if (createResponse != null && createResponse.GetRawResponse().Status == 201)
                             await container.SetAccessPolicyAsync(Azure.Storage.Blobs.Models.PublicAccessType.Blob);
